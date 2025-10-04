@@ -2,7 +2,7 @@ import { GRADIENTS } from "@/constants/styles";
 
 export default function Stats() {
     const stats = [
-        { label: "Years Innovating", value: "20+" },
+        { label: "Years Innovating", value: "26+" },
         { label: "Patents Filed", value: "22" },
         { label: "Books Authored", value: "6" },
         { label: "Awards Received", value: "9" },
