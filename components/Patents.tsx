@@ -80,11 +80,6 @@ export default function Patents() {
                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                                
-                                {/* Year badge */}
-                                <div className="absolute top-4 right-4 bg-gradient-to-r from-red-500 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                                    {patent.year}
-                                </div>
                             </div>
                             
                             <div className="relative p-6">

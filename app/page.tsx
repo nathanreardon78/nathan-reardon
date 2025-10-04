@@ -11,8 +11,8 @@ export default function HomePage() {
       <Hero />
       <About />
       <Stats />
-      <Books />
       <Patents />
+      <Books />
       <GalleryPreview />
     </main>
   );

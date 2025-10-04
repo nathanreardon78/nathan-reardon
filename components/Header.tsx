@@ -57,7 +57,7 @@ export default function Header() {
                         : "bg-transparent"
                     }`}
             >
-                <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
                     <Link
                         href="/"
                         className={COMPONENT_STYLES.logo}
@@ -66,7 +66,7 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <ul className="hidden md:flex space-x-8 text-gray-300">
+                    <ul className="hidden md:flex space-x-6 lg:space-x-8 text-gray-300">
                         {navItems.map((item) => (
                             <li key={item}>
                                 <Link
@@ -92,7 +92,7 @@ export default function Header() {
                 {/* Mobile Menu Dropdown */}
                 {menuOpen && (
                     <div className="md:hidden absolute top-full left-0 w-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-md border-t border-gray-700/50 shadow-2xl">
-                        <div className="max-w-7xl mx-auto px-6">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6">
                             <ul className="flex flex-col space-y-1 py-6">
                                 {navItems.map((item, index) => (
                                     <li key={item}>

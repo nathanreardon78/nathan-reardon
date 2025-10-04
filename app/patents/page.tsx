@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Award, FileText, ExternalLink, Search, Filter } from "lucide-react";
+import { ArrowLeft, Award, FileText, ExternalLink, Search, Filter } from "lucide-react";
 import { GRADIENTS } from "@/constants/styles";
 
 export default function PatentsPage() {
@@ -246,220 +246,226 @@ export default function PatentsPage() {
     });
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900">
+        <div className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900">
             {/* Background Elements */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
             </div>
 
             {/* Header */}
-            <div className="relative pt-24 pb-16">
-                <div className="max-w-7xl mx-auto px-6">
+            <div className="relative pt-20 pb-12 px-4">
+                <div className="w-full max-w-7xl mx-auto">
                     {/* Back Button */}
                     <Link
                         href="/"
-                        className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors duration-300 group"
+                        className="inline-flex items-center text-gray-400 hover:text-white mb-6 transition-colors duration-300 group"
                     >
-                        <ArrowLeft className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" />
-                        Back to Home
+                        <ArrowLeft className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" />
+                        <span className="text-sm">Back to Home</span>
                     </Link>
 
                     {/* Page Title */}
                     <div className="text-center">
-                        <h1 className={`text-6xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent mb-6`}>
+                        <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent mb-4`}>
                             Patent Portfolio
                         </h1>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
+                        <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-3">
                             22 Revolutionary Patents Spanning Multiple Industries
                         </p>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
                             From world-changing defense systems to life-saving medical breakthroughs, explore a comprehensive collection 
                             of patents that represent the cutting edge of innovation across technology, healthcare, and beyond.
                         </p>
                         
                         {/* Stats */}
-                        <div className="flex justify-center space-x-8 mt-8">
+                        <div className="flex justify-center gap-6 mt-6">
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-red-400">22</div>
-                                <div className="text-gray-400 text-sm">Patents Pending</div>
+                                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-red-400">22</div>
+                                <div className="text-gray-400 text-xs md:text-sm">Patents Pending</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-blue-400">{usedCategories.length}</div>
-                                <div className="text-gray-400 text-sm">Categories</div>
+                                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-blue-400">{usedCategories.length}</div>
+                                <div className="text-gray-400 text-xs md:text-sm">Categories</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-white">26</div>
-                                <div className="text-gray-400 text-sm">Years Experience</div>
+                                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white">26</div>
+                                <div className="text-gray-400 text-xs md:text-sm">Years Experience</div>
                             </div>
                         </div>
                         
                         {/* Decorative line */}
-                        <div className="w-32 h-1 bg-gradient-to-r from-red-500 to-blue-500 mx-auto mt-8 rounded-full"></div>
+                        <div className="w-20 md:w-32 h-1 bg-gradient-to-r from-red-500 to-blue-500 mx-auto mt-6 rounded-full"></div>
                     </div>
                 </div>
             </div>
 
             {/* Search and Filter */}
-            <div className="relative max-w-7xl mx-auto px-6 mb-12">
-                <div className="flex flex-col gap-4">
-                    {/* Search and Filter Toggle */}
-                    <div className="flex flex-col sm:flex-row gap-4 items-center">
-                        {/* Search */}
-                        <div className="relative w-full sm:flex-1 max-w-md">
-                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 z-10" />
-                            <input
-                                type="text"
-                                placeholder="Search patents..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors duration-300"
-                            />
+            <div className="relative w-full px-4 mb-8">
+                <div className="w-full max-w-7xl mx-auto">
+                    <div className="flex flex-col gap-4">
+                        {/* Search and Filter Toggle */}
+                        <div className="flex flex-col gap-3 items-stretch">
+                            {/* Search */}
+                            <div className="relative w-full">
+                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 z-10" />
+                                <input
+                                    type="text"
+                                    placeholder="Search patents..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    className="w-full pl-10 pr-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors duration-300 text-sm"
+                                />
+                            </div>
+
+                            {/* Filter Toggle Button */}
+                            <button
+                                onClick={() => setShowFilters(!showFilters)}
+                                className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-gray-400 hover:text-white hover:border-blue-500 transition-all duration-300 w-full"
+                            >
+                                <Filter className="w-4 h-4 flex-shrink-0" />
+                                <span className="text-sm font-medium">
+                                    {showFilters ? 'Hide Filters' : 'Show Filters'}
+                                </span>
+                                <svg 
+                                    className={`w-4 h-4 transition-transform duration-300 flex-shrink-0 ${showFilters ? 'rotate-180' : ''}`} 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
                         </div>
 
-                        {/* Filter Toggle Button */}
-                        <button
-                            onClick={() => setShowFilters(!showFilters)}
-                            className="flex items-center gap-2 px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-gray-400 hover:text-white hover:border-blue-500 transition-all duration-300"
-                        >
-                            <Filter className="w-5 h-5" />
-                            <span className="text-sm font-medium">
-                                {showFilters ? 'Hide Filters' : 'Show Filters'}
-                            </span>
-                            <svg 
-                                className={`w-4 h-4 transition-transform duration-300 ${showFilters ? 'rotate-180' : ''}`} 
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"
+                        {/* Category Filter - Hidden by default */}
+                        {showFilters && (
+                            <div className="flex flex-wrap gap-2 p-3 bg-gray-800/30 rounded-xl border border-gray-700/50">
+                                <div className="w-full text-xs text-gray-400 mb-2">Filter by category:</div>
+                                {categories.map((category) => (
+                                    <button
+                                        key={category}
+                                        onClick={() => setSelectedCategory(category)}
+                                        className={`px-2 py-1.5 rounded-lg text-xs font-medium transition-all duration-300 ${
+                                            selectedCategory === category
+                                                ? "bg-gradient-to-r from-red-500 to-blue-500 text-white"
+                                                : "bg-gray-700/50 text-gray-300 hover:text-white hover:bg-gray-600/50"
+                                        }`}
+                                        style={{ wordBreak: 'break-word' }}
+                                    >
+                                        {category}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            {/* Patents Grid */}
+            <div className="relative w-full px-4 pb-16">
+                <div className="w-full max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                        {filteredPatents.map((patent, index) => (
+                            <div
+                                key={patent.id}
+                                className="group relative bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20 w-full"
                             >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
+                                {/* Patent Image */}
+                                <div className="relative h-40 md:h-48 overflow-hidden">
+                                    <Image
+                                        src={patent.image}
+                                        alt={patent.title}
+                                        fill
+                                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                    
+                                    {/* Status Badge */}
+                                    <div className="absolute top-3 left-3 bg-green-500/90 text-white px-2 py-1 rounded-full text-xs font-medium">
+                                        {patent.status}
+                                    </div>
+
+                                    {/* Category Tag */}
+                                    <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-blue-400 px-2 py-1 rounded-full text-xs">
+                                        {patent.category}
+                                    </div>
+                                </div>
+
+                                {/* Patent Content */}
+                                <div className="p-4">
+                                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-red-500 transition-all duration-300 line-clamp-2">
+                                        {patent.title}
+                                    </h3>
+                                    
+                                    <p className="text-gray-300 text-xs mb-3 line-clamp-3">
+                                        {patent.description}
+                                    </p>
+
+                                    {/* Patent Number */}
+                                    <div className="flex items-center text-gray-400 text-xs mb-3">
+                                        <FileText className="w-3 h-3 mr-1 flex-shrink-0" />
+                                        <span className="truncate">{patent.patentNumber}</span>
+                                    </div>
+
+                                    {/* Applications */}
+                                    <div className="space-y-2">
+                                        <div className="text-gray-400 text-xs font-medium">Key Applications:</div>
+                                        <div className="flex flex-wrap gap-1">
+                                            {patent.applications.slice(0, 3).map((app, idx) => (
+                                                <span
+                                                    key={idx}
+                                                    className="bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-xs inline-block"
+                                                    style={{ wordBreak: 'break-word', maxWidth: '100%' }}
+                                                >
+                                                    {app}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
-                    {/* Category Filter - Hidden by default */}
-                    {showFilters && (
-                        <div className="flex flex-wrap gap-2 p-4 bg-gray-800/30 rounded-xl border border-gray-700/50">
-                            <div className="w-full text-sm text-gray-400 mb-2">Filter by category:</div>
-                            {categories.map((category) => (
-                                <button
-                                    key={category}
-                                    onClick={() => setSelectedCategory(category)}
-                                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${
-                                        selectedCategory === category
-                                            ? "bg-gradient-to-r from-red-500 to-blue-500 text-white"
-                                            : "bg-gray-700/50 text-gray-300 hover:text-white hover:bg-gray-600/50"
-                                    }`}
-                                >
-                                    {category}
-                                </button>
-                            ))}
+                    {/* No Results */}
+                    {filteredPatents.length === 0 && (
+                        <div className="text-center py-12 px-4">
+                            <div className="text-gray-400 text-base">No patents found matching your criteria.</div>
+                            <button
+                                onClick={() => {
+                                    setSearchTerm("");
+                                    setSelectedCategory("All");
+                                }}
+                                className="mt-4 text-blue-400 hover:text-white transition-colors duration-300 text-sm"
+                            >
+                                Clear filters
+                            </button>
                         </div>
                     )}
                 </div>
             </div>
 
-            {/* Patents Grid */}
-            <div className="relative max-w-7xl mx-auto px-6 pb-24">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredPatents.map((patent, index) => (
-                        <div
-                            key={patent.id}
-                            className="group relative bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20"
-                        >
-                            {/* Patent Image */}
-                            <div className="relative h-48 overflow-hidden">
-                                <Image
-                                    src={patent.image}
-                                    alt={patent.title}
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                                
-                                {/* Status Badge */}
-                                <div className="absolute top-4 left-4 bg-green-500/90 text-white px-3 py-1 rounded-full text-xs font-medium">
-                                    {patent.status}
-                                </div>
-
-                                {/* Category Tag */}
-                                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-blue-400 px-3 py-1 rounded-full text-xs">
-                                    {patent.category}
-                                </div>
-                            </div>
-
-                            {/* Patent Content */}
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-red-500 transition-all duration-300">
-                                    {patent.title}
-                                </h3>
-                                
-                                <p className="text-gray-300 text-sm mb-4 line-clamp-3">
-                                    {patent.description}
-                                </p>
-
-                                {/* Patent Number */}
-                                <div className="flex items-center text-gray-400 text-xs mb-4">
-                                    <FileText className="w-3 h-3 mr-1" />
-                                    {patent.patentNumber}
-                                </div>
-
-                                {/* Applications */}
-                                <div className="space-y-2">
-                                    <div className="text-gray-400 text-xs font-medium">Key Applications:</div>
-                                    <div className="flex flex-wrap gap-1">
-                                        {patent.applications.slice(0, 3).map((app, idx) => (
-                                            <span
-                                                key={idx}
-                                                className="bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-xs"
-                                            >
-                                                {app}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* No Results */}
-                {filteredPatents.length === 0 && (
-                    <div className="text-center py-16">
-                        <div className="text-gray-400 text-lg">No patents found matching your criteria.</div>
-                        <button
-                            onClick={() => {
-                                setSearchTerm("");
-                                setSelectedCategory("All");
-                            }}
-                            className="mt-4 text-blue-400 hover:text-white transition-colors duration-300"
-                        >
-                            Clear filters
-                        </button>
-                    </div>
-                )}
-            </div>
-
             {/* Contact CTA */}
             <div className="relative bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border-t border-gray-700/50">
-                <div className="max-w-4xl mx-auto px-6 py-16 text-center">
-                    <Award className="w-12 h-12 text-blue-400 mx-auto mb-6" />
-                    <h2 className="text-3xl font-bold text-white mb-4">
+                <div className="w-full max-w-4xl mx-auto px-4 py-12 text-center">
+                    <Award className="w-10 h-10 text-blue-400 mx-auto mb-4" />
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
                         Interested in Licensing or Collaboration?
                     </h2>
-                    <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    <p className="text-gray-300 mb-6 max-w-2xl mx-auto text-sm md:text-base">
                         These world-changing innovations represent breakthrough opportunities across defense, healthcare, energy, and beyond. 
                         Explore partnership opportunities for technology transfer and commercial applications.
                     </p>
                     
                     {/* Contact Information */}
-                    <div className="bg-gray-800/30 rounded-2xl p-6 mb-8 max-w-md mx-auto">
-                        <div className="text-white mb-2">
+                    <div className="bg-gray-800/30 rounded-2xl p-4 mb-6 max-w-sm mx-auto w-full">
+                        <div className="text-white mb-2 text-sm md:text-base">
                             <strong>Nathan Reardon</strong>
                         </div>
-                        <div className="text-gray-300 text-sm space-y-1">
-                            <div>nathan@membershipauto.com</div>
+                        <div className="text-gray-300 text-xs md:text-sm space-y-1">
+                            <div style={{ wordBreak: 'break-all' }}>nathan@membershipauto.com</div>
                             <div>207-745-7575</div>
                             <div>PO Box 52, Detroit, ME 04929</div>
                         </div>
@@ -467,10 +473,10 @@ export default function PatentsPage() {
                     
                     <Link
                         href="/contact"
-                        className="inline-flex items-center bg-gradient-to-r from-red-500 to-blue-600 hover:from-red-600 hover:to-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-red-500/25 transform hover:-translate-y-1 hover:scale-105"
+                        className="inline-flex items-center bg-gradient-to-r from-red-500 to-blue-600 hover:from-red-600 hover:to-blue-700 text-white px-6 py-3 rounded-2xl font-bold text-base transition-all duration-300 shadow-lg hover:shadow-red-500/25 transform hover:-translate-y-1 hover:scale-105"
                     >
                         Get in Touch
-                        <ExternalLink className="ml-2 w-5 h-5" />
+                        <ExternalLink className="ml-2 w-4 h-4" />
                     </Link>
                 </div>
             </div>

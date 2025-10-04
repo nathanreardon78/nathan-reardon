@@ -39,7 +39,7 @@ export default function Books() {
             
             <div className="relative text-center">
                 <h2 className={`text-5xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent mb-4`}>
-                    Books Authored
+                    Books
                 </h2>
                 <p className="text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
                     A collection of thought-provoking works that challenge conventional wisdom and inspire innovation

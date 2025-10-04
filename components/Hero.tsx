@@ -45,8 +45,16 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-gray-950/30 pointer-events-none" />
 
             {/* Left Content */}
-            <div className="z-10 flex-1 text-center md:text-left space-y-6">
+            <div className="z-10 w-full md:flex-1 text-center md:text-left space-y-6">
                 {/* Global/Innovation Logo */}
+                <motion.div
+                    className="flex justify-center md:justify-start"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                    <div className="h-32" />
+                </motion.div>
 
                 <motion.h1
                     className="text-4xl md:text-6xl font-bold leading-tight"
@@ -64,19 +72,10 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    FATHER - ENTREPRENEUR - AUTHOR - INVENTOR
+                    FATHER • ENTREPRENEUR • AUTHOR • INVENTOR
                 </motion.p>
 
-                <motion.h3
-                    className="text-xl md:text-2xl text-white font-semibold"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                >
-                    Prolific Innovator – 22 Patents <br />
-                    ASE Triple Master | 2nd Degree Black Belt <br />
-                    26 Years of Business Leadership
-                </motion.h3>
+                
 
                 <motion.p
                     className="text-gray-400 text-lg max-w-xl mx-auto md:mx-0 leading-relaxed"
@@ -84,35 +83,29 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    Nathan Reardon is a prolific American inventor, entrepreneur, 
-                    and strategist with 22 active patents spanning automotive engineering, 
-                    real estate development, health technology, and consumer innovation. 
-                    Over 26 years in business, he has founded and led multiple ventures that challenge 
-                    convention and redefine what’s possible across industries.
+                    From solving everyday frustrations to tackling world-changing challenges, 
+                    Nathan has spent 26 years building solutions that matter. Whether it's 
+                    preventing child car deaths, stopping hurricanes, or revolutionizing 
+                    healthcare—if it can make life better, it's worth pursuing.
                 </motion.p>
 
                 <motion.div
-                    className="flex justify-center md:justify-start gap-4 pt-4"
+                    className="flex justify-center md:justify-start gap-4 pt-2"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1 }}
+                    transition={{ duration: 0.8, delay: 1.2 }}
                 >
                     <Link
                         href="/patents"
                         className={`${COMPONENT_STYLES.heroButton}`}>
-                        <span>Explore Now</span>
-                    </Link>
-                    <Link
-                        href="/patents"
-                        className="border border-gray-700 hover:border-blue-500 text-gray-300 hover:text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
-                        Learn More
+                        <span>Explore Patents</span>
                     </Link>
                 </motion.div>
             </div>
 
             {/* Right Image (floating bounce) with Stars at Bottom */}
             <motion.div
-                className="z-10 flex-1 flex justify-center mt-12 md:mt-0"
+                className="z-10 flex-1 justify-center mt-12 md:mt-0 hidden md:flex"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
