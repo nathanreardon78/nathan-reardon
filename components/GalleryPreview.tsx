@@ -59,7 +59,7 @@ export default function GalleryPreview() {
 
                 <div className="text-center">
                     <Link
-                        href="/photography"
+                        href="/gallery"
                         className="group inline-flex items-center bg-gradient-to-r from-blue-500 to-red-500 hover:from-blue-600 hover:to-red-600 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1 hover:scale-105"
                     >
                         <span className="mr-3">View Full Gallery</span>

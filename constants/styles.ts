@@ -162,7 +162,7 @@ export const BREAKPOINTS = {
 export const COMPONENT_STYLES = {
   heroButton: `${STYLES.buttons.primary} ${ANIMATIONS.hover.button}`,
   navLink: `hover:text-red-500 ${ANIMATIONS.transition}`,
-  logo: 'text-red-500 text-xl font-semibold tracking-tight',
+  logo: `text-xl font-semibold tracking-tight bg-gradient-to-r from-blue-400 to-red-500 bg-clip-text text-transparent`,
   sectionHeading: `${STYLES.text.heading} mb-10`,
   cardHover: `${STYLES.cards.primary} ${ANIMATIONS.hover.lift}`,
 } as const;

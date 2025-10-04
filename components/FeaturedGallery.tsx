@@ -5,7 +5,7 @@ export default function FeaturedGallery() {
     return (
         <section className="max-w-7xl mx-auto px-6 py-24">
             <h2 className="text-3xl font-semibold text-white mb-10 text-center">
-                Featured Photography
+                Featured Gallery
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {images.map((src, idx) => (
