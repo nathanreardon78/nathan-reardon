@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { GRADIENTS } from "@/constants/styles";
+import { COMPONENT_STYLES, GRADIENTS } from "@/constants/styles";
+import { ChevronRight } from "lucide-react";
 
 export default function GalleryPreview() {
     // Featured images from the gallery
@@ -69,12 +70,10 @@ export default function GalleryPreview() {
                 <div className="text-center">
                     <Link
                         href="/gallery"
-                        className="group inline-flex items-center bg-gradient-to-r from-blue-500 to-red-500 hover:from-blue-600 hover:to-red-600 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1 hover:scale-105"
+                        className={`${COMPONENT_STYLES.heroButton}`}
                     >
                         <span className="mr-3">View Full Gallery</span>
-                        <svg className="w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
+
                     </Link>
                 </div>
             </div>

@@ -129,7 +129,7 @@ export default function GalleryPage() {
                     {/* Close button */}
                     <button
                         onClick={closeModal}
-                        className="absolute top-6 right-6 text-white hover:text-red-400 transition-colors duration-300 z-10"
+                        className="absolute top-6 right-6 text-white hover:text-white transition-colors duration-300 z-10"
                     >
                         <X className="w-8 h-8" />
                     </button>

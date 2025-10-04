@@ -32,7 +32,10 @@ export default function Footer() {
                             FATHER - ENTREPRENEUR - AUTHOR - INVENTOR
                         </p>
                         <p className="text-gray-400 leading-relaxed">
-                            Nathan is driven and passionate about the auto industry and has dealt with major setbacks in his 18 years of experience. Through innovation and perseverance, he continues to push boundaries in automotive technology.
+                            Innovating across automotive, property, and health sectors with a disciplined approach, 
+                            Nathan combines technical mastery (ASE Triple Master) with personal discipline 
+                            (2nd Degree Black Belt) 
+                            to transform bold concepts into real-world impact.
                         </p>
                         <Link
                             href="/patents"
@@ -50,7 +53,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
-                                        className="text-gray-400 hover:text-red-400 transition-colors duration-300"
+                                        className="text-gray-400 hover:text-white transition-colors duration-300"
                                     >
                                         {link.name}
                                     </Link>
@@ -113,7 +116,7 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="mt-8 pt-6 border-t border-gray-800 text-center">
                     <p className="text-gray-400 text-sm">
-                        © {currentYear} nathanreardon.com - All Rights Reserved.
+                        © 1999 - {currentYear} nathanreardon.com - All Rights Reserved.
                     </p>
                 </div>
             </div>

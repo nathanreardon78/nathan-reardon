@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { GRADIENTS } from "@/constants/styles";
+import { COMPONENT_STYLES, GRADIENTS } from "@/constants/styles";
 
 export default function Patents() {
     const patents = [
@@ -100,15 +100,10 @@ export default function Patents() {
                 >
                     <Link
                         href="/patents"
-                        className="group relative inline-flex items-center bg-gradient-to-r from-red-500 to-blue-600 hover:from-red-600 hover:to-blue-700 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-red-500/25 transform hover:-translate-y-2 hover:scale-105"
+                        className={`${COMPONENT_STYLES.heroButton}`}
                     >
                         <span className="relative z-10">View All Patents</span>
                         <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        
-                        {/* Animated arrows */}
-                        <svg className="ml-3 w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
                     </Link>
                 </motion.div>
             </div>
