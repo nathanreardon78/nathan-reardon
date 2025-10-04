@@ -83,14 +83,13 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    From solving everyday frustrations to tackling world-changing challenges, 
-                    Nathan has spent 26 years building solutions that matter. Whether it's 
-                    preventing child car deaths, stopping hurricanes, or revolutionizing 
-                    healthcare—if it can make life better, it's worth pursuing.
+                   Nathan Reardon is a prolific American inventor, entrepreneur, 
+                   and strategist with 22 active patents spanning automotive engineering, 
+                   real estate development, health technology, and consumer innovation.
                 </motion.p>
 
                 <motion.div
-                    className="flex justify-center md:justify-start gap-4 pt-2"
+                    className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-2"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
@@ -99,6 +98,12 @@ export default function Hero() {
                         href="/patents"
                         className={`${COMPONENT_STYLES.heroButton}`}>
                         <span>Explore Patents</span>
+                    </Link>
+                    <Link
+                        href="/achievements"
+                        className="inline-block border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-300 text-base md:text-lg bg-transparent"
+                    >
+                        <span>View Achievements</span>
                     </Link>
                 </motion.div>
             </div>
