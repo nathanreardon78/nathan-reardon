@@ -1,0 +1,105 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+/* ===== Custom Global Styles ===== */
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-text: #f9fafb;
+  --color-accent: #dc2626;
+  --color-muted: #6b7280;
+}
+
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Custom utility classes */
+.container {
+  @apply mx-auto max-w-6xl px-4;
+}
+
+.section {
+  @apply py-16;
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+/* Cool gradient button styles */
+.btn-gradient-red {
+  @apply bg-gradient-to-r from-red-500 to-blue-600;
+  @apply hover:bg-gradient-to-r hover:from-red-600 hover:to-blue-700;
+  @apply text-white px-6 py-3 rounded-lg font-medium;
+  @apply transition-all duration-300 shadow-lg hover:shadow-xl;
+  @apply transform hover:-translate-y-0.5;
+}
+
+.btn-gradient-blue {
+  @apply bg-gradient-to-r from-blue-600 to-blue-400;
+  @apply hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-500;
+  @apply text-white px-6 py-3 rounded-lg font-medium;
+  @apply transition-all duration-300 shadow-lg hover:shadow-xl;
+  @apply transform hover:-translate-y-0.5;
+}
+
+/* Text gradient utilities */
+.text-gradient-patriotic {
+  @apply bg-gradient-to-r from-blue-400 to-red-500;
+  @apply bg-clip-text text-transparent;
+}
+
+.text-gradient-cta {
+  @apply bg-gradient-to-r from-red-500 to-blue-600;
+  @apply bg-clip-text text-transparent;
+}
+
+.text-gradient-red {
+  @apply bg-gradient-to-r from-red-500 to-red-400;
+  @apply bg-clip-text text-transparent;
+}
+
+/* Card hover effects */
+.card-hover-red {
+  @apply hover:border-red-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.4)];
+  @apply transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.02];
+}
+
+.card-hover-blue {
+  @apply hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)];
+  @apply transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.02];
+}
+
+/* Global link styles */
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+  opacity: 0.9;
+}
+
+
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,17 @@
+import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
+import Books from "@/components/Books";
+import Patents from "@/components/Patents";
+import GalleryPreview from "@/components/GalleryPreview";
+
+export default function HomePage() {
+  return (
+    <main className="bg-gray-950 text-gray-100">
+      <Hero />
+      <Stats />
+      <Books />
+      <Patents />
+      <GalleryPreview />
+    </main>
+  );
+}
