@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "John Doe | Inventor & Innovator",
-  description: "Personal website showcasing patents, photography, and innovation projects.",
+  title: "Nathan Reardon | Inventor & Innovator",
+  description: "Personal website showcasing patents, gallery, and innovation projects.",
 };
 
 export default function RootLayout({
