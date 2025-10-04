@@ -85,7 +85,7 @@ export const GRADIENTS = {
 export const STYLES = {
   // Button styles
   buttons: {
-    primary: `${GRADIENTS.primaryCTA} hover:${GRADIENTS.primaryCTAHover} text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5`,
+    primary: `${GRADIENTS.primaryCTA} hover:${GRADIENTS.primaryCTAHover} text-white hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5`,
     secondary: `border border-gray-700 hover:border-blue-500 text-gray-300 hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-300`,
     accent: `border border-red-600 text-red-500 hover:${GRADIENTS.primaryCTA} hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-300`,
   },

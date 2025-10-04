@@ -1,7 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import { GRADIENTS } from "@/constants/styles";
 
 export default function GalleryPreview() {
+    // Featured images from the gallery
+    const featuredImages = [
+        "/gallery/IMG_3862.jpeg",
+        "/gallery/photo2.jpeg",
+        "/gallery/photo5.jpeg",
+        "/gallery/photo8.jpeg"
+    ];
     return (
         <section className="relative py-24 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 overflow-hidden">
             {/* Geometric background pattern */}
@@ -24,24 +32,25 @@ export default function GalleryPreview() {
             
             <div className="relative max-w-6xl mx-auto px-6 text-center">
                 <h2 className={`text-5xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent mb-6`}>
-                    A Glimpse Through My Lens
+                    Nathan at Work
                 </h2>
                 <p className="text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
-                    Capturing moments that tell stories of innovation, beauty, and the human spirit
+                    Behind the scenes of innovation - where ideas become reality
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                    {featuredImages.map((image, i) => (
                         <div
                             key={i}
                             className="group relative bg-gray-800 aspect-square rounded-2xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:-rotate-1 hover:shadow-2xl hover:shadow-red-500/20"
                         >
                             {/* Image container with gradient overlay */}
                             <div className="relative w-full h-full">
-                                <img
-                                    src={`https://picsum.photos/500?random=${i}`}
-                                    alt={`Gallery ${i}`}
-                                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
+                                <Image
+                                    src={image}
+                                    alt={`Nathan at work ${i + 1}`}
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
                                 
                                 {/* Hover overlay with gradient */}

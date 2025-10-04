@@ -9,21 +9,21 @@ export default function Patents() {
     const patents = [
         {
             id: 1,
-            title: "Autonomous Energy Grid Optimizer",
+            title: "Radiation Remediation",
             year: 2024,
-            image: "/patents/grid-optimizer.jpg",
+            image: "/patents/radia-mel.png",
         },
         {
             id: 2,
-            title: "Biometric Secure ID Framework",
+            title: "Vita Choice",
             year: 2023,
-            image: "/patents/secure-id.jpg",
+            image: "/patents/vita-choice.png",
         },
         {
             id: 3,
-            title: "Hydro-Adaptive Power Engine",
+            title: "Patch Worx",
             year: 2022,
-            image: "/patents/power-engine.jpg",
+            image: "/patents/patch-worx.png",
         },
         {
             id: 4,

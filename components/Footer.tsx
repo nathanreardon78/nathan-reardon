@@ -36,7 +36,7 @@ export default function Footer() {
                         </p>
                         <Link
                             href="/patents"
-                            className={`inline-block ${GRADIENTS.primaryCTA} text-white px-6 py-2 rounded-lg font-medium ${ANIMATIONS.transition} hover:shadow-lg transform hover:-translate-y-0.5`}
+                            className={`inline-block ${GRADIENTS.primaryCTA} text-white hover:text-white px-6 py-2 rounded-lg font-medium ${ANIMATIONS.transition} hover:shadow-lg transform hover:-translate-y-0.5`}
                         >
                             View Patents
                         </Link>
@@ -44,9 +44,7 @@ export default function Footer() {
 
                     {/* Site Links */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-white border-b border-gray-700 pb-2">
-                            SITE LINKS
-                        </h4>
+                        <h4 className="text-lg font-semibold text-white border-b border-gray-700 pb-2"/>
                         <ul className="space-y-2">
                             {siteLinks.map((link) => (
                                 <li key={link.name}>
@@ -58,16 +56,6 @@ export default function Footer() {
                                     </Link>
                                 </li>
                             ))}
-                            <li>
-                                <a
-                                    href="https://workwithglobal.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-red-400 transition-colors duration-300"
-                                >
-                                    Opportunities
-                                </a>
-                            </li>
                         </ul>
                     </div>
 
