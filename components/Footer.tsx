@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Github, MapPin, Phone, Mail } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Github, MapPin, Mail } from "lucide-react";
 import { GRADIENTS, STYLES, ANIMATIONS } from "@/constants/styles";
 
 export default function Footer() {
@@ -16,6 +16,7 @@ export default function Footer() {
 
   const siteLinks = [
     { name: "Home", href: "/" },
+    { name: "Achievements", href: "/achievements" },
     { name: "Patents", href: "/patents" },
     { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
@@ -47,7 +48,7 @@ export default function Footer() {
 
                     {/* Site Links */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-white border-b border-gray-700 pb-2"/>
+                        
                         <ul className="space-y-2">
                             {siteLinks.map((link) => (
                                 <li key={link.name}>
@@ -70,10 +71,6 @@ export default function Footer() {
                                 <span className="text-sm">PO Box 52
                                     Detroit, Me. 04929
                                 </span>
-                            </div>
-                            <div className="flex items-center space-x-3 text-gray-400">
-                                <Phone size={16} className="text-red-500 flex-shrink-0" />
-                                <span className="text-sm">+1 (207) 947-1999</span>
                             </div>
                             <div className="flex items-center space-x-3 text-gray-400">
                                 <Mail size={16} className="text-red-500 flex-shrink-0" />

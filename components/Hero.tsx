@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { COMPONENT_STYLES, GRADIENTS } from "@/constants/styles";
 import Link from 'next/link';
+import AnimatedStars from "@/components/AnimatedStars";
 
 export default function Hero() {
     const mouseX = useMotionValue(0);
@@ -44,6 +45,11 @@ export default function Hero() {
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-gray-950/30 pointer-events-none" />
 
+            {/* Animated Stars Background */}
+            <div className="absolute inset-0 opacity-10">
+                <AnimatedStars count={200} />
+            </div>
+
             {/* Left Content */}
             <div className="z-10 w-full md:flex-1 text-center md:text-left space-y-6">
                 {/* Global/Innovation Logo */}
@@ -67,7 +73,7 @@ export default function Hero() {
                 </motion.h1>
 
                 <motion.p
-                    className="text-sm font-medium text-gray-300 tracking-widest"
+                    className="text-sm font-medium text-white tracking-widest"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
@@ -78,7 +84,7 @@ export default function Hero() {
                 
 
                 <motion.p
-                    className="text-gray-400 text-lg max-w-xl mx-auto md:mx-0 leading-relaxed"
+                    className="text-white text-lg max-w-xl mx-auto md:mx-0 leading-relaxed"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}

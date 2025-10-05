@@ -29,7 +29,6 @@ If no email service is configured, the form automatically falls back to opening 
 ## Contact Methods
 
 - **Primary**: nathan@membershipauto.com
-- **Phone**: 207-745-7575
 - **LinkedIn**: [Nathan Reardon](https://linkedin.com/in/nathanreardon)
 - **Location**: Detroit, ME 04929
 

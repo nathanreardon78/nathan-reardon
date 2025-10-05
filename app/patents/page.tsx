@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Award, FileText, ExternalLink, Search, Filter } from "lucide-react";
 import { GRADIENTS } from "@/constants/styles";
+import AnimatedStars from "@/components/AnimatedStars";
 
 export default function PatentsPage() {
     const allPatents = [
@@ -252,6 +253,7 @@ export default function PatentsPage() {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+                <AnimatedStars count={300} />
             </div>
 
             {/* Header */}
@@ -260,7 +262,7 @@ export default function PatentsPage() {
                     {/* Back Button */}
                     <Link
                         href="/"
-                        className="inline-flex items-center text-gray-400 hover:text-white mb-6 transition-colors duration-300 group"
+                        className="inline-flex items-center text-white hover:text-white mb-6 transition-colors duration-300 group"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" />
                         <span className="text-sm">Back to Home</span>
@@ -271,10 +273,10 @@ export default function PatentsPage() {
                         <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent mb-4`}>
                             Patent Portfolio
                         </h1>
-                        <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-3">
+                        <p className="text-base md:text-lg lg:text-xl text-white max-w-3xl mx-auto mb-3">
                             22 Revolutionary Patents Spanning Multiple Industries
                         </p>
-                        <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-sm md:text-base text-white max-w-2xl mx-auto">
                             From world-changing defense systems to life-saving medical breakthroughs, explore a comprehensive collection 
                             of patents that represent the cutting edge of innovation across technology, healthcare, and beyond.
                         </p>
@@ -283,15 +285,15 @@ export default function PatentsPage() {
                         <div className="flex justify-center gap-6 mt-6">
                             <div className="text-center">
                                 <div className="text-xl md:text-2xl lg:text-3xl font-bold text-red-400">22</div>
-                                <div className="text-gray-400 text-xs md:text-sm">Patents Pending</div>
+                                <div className="text-white text-xs md:text-sm">Patents Pending</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-xl md:text-2xl lg:text-3xl font-bold text-blue-400">{usedCategories.length}</div>
-                                <div className="text-gray-400 text-xs md:text-sm">Categories</div>
+                                <div className="text-white text-xs md:text-sm">Categories</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white">26</div>
-                                <div className="text-gray-400 text-xs md:text-sm">Years Experience</div>
+                                <div className="text-white text-xs md:text-sm">Years Experience</div>
                             </div>
                         </div>
                         
@@ -309,7 +311,7 @@ export default function PatentsPage() {
                         <div className="flex flex-col gap-3 items-stretch">
                             {/* Search */}
                             <div className="relative w-full">
-                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 z-10" />
+                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white w-4 h-4 z-10" />
                                 <input
                                     type="text"
                                     placeholder="Search patents..."
@@ -322,7 +324,7 @@ export default function PatentsPage() {
                             {/* Filter Toggle Button */}
                             <button
                                 onClick={() => setShowFilters(!showFilters)}
-                                className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-gray-400 hover:text-white hover:border-blue-500 transition-all duration-300 w-full"
+                                className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white hover:text-white hover:border-blue-500 transition-all duration-300 w-full"
                             >
                                 <Filter className="w-4 h-4 flex-shrink-0" />
                                 <span className="text-sm font-medium">
@@ -466,7 +468,6 @@ export default function PatentsPage() {
                         </div>
                         <div className="text-gray-300 text-xs md:text-sm space-y-1">
                             <div style={{ wordBreak: 'break-all' }}>nathan@membershipauto.com</div>
-                            <div>207-745-7575</div>
                             <div>PO Box 52, Detroit, ME 04929</div>
                         </div>
                     </div>
