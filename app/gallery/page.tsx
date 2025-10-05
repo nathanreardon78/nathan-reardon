@@ -5,23 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { GRADIENTS } from "@/constants/styles";
+import AnimatedStars from "@/components/AnimatedStars";
 
 export default function GalleryPage() {
-    // All gallery images
+    // All gallery images with corresponding names
     const galleryImages = [
-        "/gallery/IMG_3862.jpeg",
-        "/gallery/photo2.jpeg",
-        "/gallery/photo3.jpeg",
-        "/gallery/photo4.jpeg",
-        "/gallery/photo5.jpeg",
-        "/gallery/photo6.jpeg",
-        "/gallery/photo7.jpeg",
-        "/gallery/photo8.jpeg",
-        "/gallery/photo9.jpeg",
-        "/gallery/photo10.jpeg",
-        "/gallery/photo11.jpeg",
-        "/gallery/photo12.jpeg",
-        "/gallery/photo13.jpeg"
+        { src: "/gallery/ben-carson.jpeg", name: "Ben Carson" },
+        { src: "/gallery/ceeLo-green.jpeg", name: "CeeLo Green" },
+        { src: "/gallery/evander-holyfield.jpeg", name: "Evander Holyfield" },
+        { src: "/gallery/fat-joe.jpeg", name: "Fat Joe" },
+        { src: "/gallery/jack-welsh.jpeg", name: "Jack Welsh" },
+        { src: "/gallery/john-maxwell.jpeg", name: "John Maxwell" },
+        { src: "/gallery/kevin-harrington.jpeg", name: "Kevin Harrington" },
+        { src: "/gallery/master-p-(percy-miller).jpeg", name: "Master P (Percy Miller)" },
+        { src: "/gallery/photo5.jpeg", name: "Industry Leader" },
+        { src: "/gallery/vanilla-ice.jpeg", name: "Vanilla Ice" },
+        { src: "/gallery/wayde-king-(tv-show-tanked).jpeg", name: "Wayde King (TV Show Tanked)" },
+        { src: "/gallery/wayne-huizenga-jr.jpeg", name: "Wayne Huizenga Jr." }
     ];
 
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -53,6 +53,7 @@ export default function GalleryPage() {
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_50%)]"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(239,68,68,0.15),transparent_50%)]"></div>
+                <AnimatedStars count={300} />
             </div>
 
             {/* Header */}
@@ -61,7 +62,7 @@ export default function GalleryPage() {
                     {/* Back Button */}
                     <Link
                         href="/"
-                        className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors duration-300 group"
+                        className="inline-flex items-center text-white hover:text-white mb-8 transition-colors duration-300 group"
                     >
                         <ArrowLeft className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" />
                         Back to Home
@@ -72,10 +73,10 @@ export default function GalleryPage() {
                         <h1 className={`text-6xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent mb-6`}>
                             Nathan at Work
                         </h1>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
+                        <p className="text-xl text-white max-w-3xl mx-auto mb-4">
                             Behind the scenes of innovation - where ideas become reality
                         </p>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-white max-w-2xl mx-auto">
                             From automotive systems to cutting-edge technology, witness the hands-on process 
                             of turning bold concepts into breakthrough solutions.
                         </p>
@@ -97,18 +98,32 @@ export default function GalleryPage() {
                         >
                             <div className="relative aspect-square">
                                 <Image
-                                    src={image}
-                                    alt={`Nathan at work ${index + 1}`}
+                                    src={image.src}
+                                    alt={`Nathan with ${image.name}`}
                                     fill
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                                    loading={index < 4 ? "eager" : "lazy"}
+                                    quality={85}
                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
                                 
                                 {/* Hover overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 
-                                {/* Hover content */}
+                                {/* Name label - Always visible at bottom (except for photo5.jpeg) */}
+                                {image.src !== "/gallery/photo5.jpeg" && (
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-4 pt-8">
+                                        <div className="text-center">
+                                            <p className="text-white font-semibold text-sm leading-tight">
+                                                Nathan & <span className="text-blue-400">{image.name}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                )}
+                                
+                                {/* Hover content - Search icon */}
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <div className="bg-white/10 backdrop-blur-sm rounded-full p-3">
+                                    <div className="bg-white/10 backdrop-blur-sm rounded-full p-3 transform translate-y-[-20px]">
                                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                         </svg>
@@ -152,12 +167,22 @@ export default function GalleryPage() {
                     {/* Image container */}
                     <div className="relative max-w-4xl max-h-[80vh] w-full h-full flex items-center justify-center">
                         <Image
-                            src={galleryImages[selectedImage]}
-                            alt={`Nathan at work ${selectedImage + 1}`}
+                            src={galleryImages[selectedImage].src}
+                            alt={`Nathan with ${galleryImages[selectedImage].name}`}
                             width={1200}
                             height={800}
+                            sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 70vw"
+                            priority
+                            quality={90}
                             className="object-contain max-w-full max-h-full rounded-lg"
                         />
+                        
+                        {/* Name overlay - conditional for photo5.jpeg */}
+                        {galleryImages[selectedImage].src !== "/gallery/photo5.jpeg" && (
+                            <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white px-6 py-3 rounded-full text-lg font-semibold">
+                                Nathan with {galleryImages[selectedImage].name}
+                            </div>
+                        )}
                     </div>
 
                     {/* Image counter */}

@@ -4,12 +4,12 @@ import { COMPONENT_STYLES, GRADIENTS } from "@/constants/styles";
 import { ChevronRight } from "lucide-react";
 
 export default function GalleryPreview() {
-    // Featured images from the gallery
+    // Featured images from the gallery with names
     const featuredImages = [
-        "/gallery/IMG_3862.jpeg",
-        "/gallery/photo2.jpeg",
-        "/gallery/photo5.jpeg",
-        "/gallery/photo8.jpeg"
+        { src: "/gallery/ben-carson.jpeg", name: "Ben Carson" },
+        { src: "/gallery/ceeLo-green.jpeg", name: "CeeLo Green" },
+        { src: "/gallery/john-maxwell.jpeg", name: "John Maxwell" },
+        { src: "/gallery/kevin-harrington.jpeg", name: "Kevin Harrington" }
     ];
     return (
         <section className="relative py-24 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 overflow-hidden">
@@ -35,7 +35,7 @@ export default function GalleryPreview() {
                 <h2 className={`text-5xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent mb-6`}>
                     Nathan at Work
                 </h2>
-                <p className="text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
+                <p className="text-white text-lg mb-16 max-w-2xl mx-auto">
                     Behind the scenes of innovation - where ideas become reality
                 </p>
 
@@ -48,14 +48,28 @@ export default function GalleryPreview() {
                             {/* Image container with gradient overlay */}
                             <div className="relative w-full h-full">
                                 <Image
-                                    src={image}
-                                    alt={`Nathan at work ${i + 1}`}
+                                    src={image.src}
+                                    alt={`Nathan with ${image.name}`}
                                     fill
+                                    sizes="(max-width: 768px) 50vw, 25vw"
+                                    loading="lazy"
+                                    quality={85}
                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
                                 
                                 {/* Hover overlay with gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                
+                                {/* Name label - Always visible at bottom (except for photo5.jpeg) */}
+                                {image.src !== "/gallery/photo5.jpeg" && (
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-3 pt-6">
+                                        <div className="text-center">
+                                            <p className="text-white font-semibold text-xs leading-tight">
+                                                Nathan & <span className="text-blue-400">{image.name}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                )}
                                 
                                 {/* Corner accent */}
                                 <div className="absolute top-2 right-2 w-3 h-3 bg-gradient-to-r from-red-500 to-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

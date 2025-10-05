@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Mail, Phone, MapPin, Linkedin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { GRADIENTS } from '@/constants/styles';
 
 export default function ContactPage() {
@@ -133,27 +133,11 @@ export default function ContactPage() {
             color: "text-red-400"
         },
         {
-            icon: Phone,
-            title: "Phone",
-            primary: "207-745-7575",
-            secondary: "Mon-Fri 9AM-5PM EST",
-            href: "tel:+12077457575",
-            color: "text-red-400"
-        },
-        {
             icon: MapPin,
             title: "Location",
             primary: "Detroit, ME 04929",
-            secondary: "Available for travel",
+            secondary: "",
             href: null,
-            color: "text-red-400"
-        },
-        {
-            icon: Linkedin,
-            title: "LinkedIn",
-            primary: "Nathan Reardon",
-            secondary: "Professional Network",
-            href: "https://linkedin.com/in/nathanreardon",
             color: "text-red-400"
         }
     ];
@@ -197,7 +181,7 @@ export default function ContactPage() {
                     <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         Let's Connect
                     </h1>
-                    <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-base md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
                         Ready to discuss innovation, licensing opportunities, or partnerships? 
                         I'm always interested in connecting with forward-thinking individuals and organizations.
                     </p>
@@ -229,7 +213,7 @@ export default function ContactPage() {
                                     <p className="text-gray-400 text-sm md:text-base">Inventor • Entrepreneur • Author</p>
                                 </div>
                             </div>
-                            <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                            <p className="text-white-400 leading-relaxed text-sm md:text-base">
                                 With 26 years of experience in automotive innovation and 22 patents across multiple industries, 
                                 I'm passionate about creating solutions that make a real difference in people's lives.
                             </p>
