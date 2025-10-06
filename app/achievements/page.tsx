@@ -4,9 +4,24 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { GRADIENTS } from '@/constants/styles';
 import AnimatedStars from '@/components/AnimatedStars';
+import { Car, Award, Wrench, Settings, Package, BarChart3, Zap } from 'lucide-react';
 
 export default function AchievementsPage() {
     const awards = [
+        {
+            id: 5,
+            title: "ASE Service Writer",
+            organization: "ASE",
+            year: "Achievement",
+            level: "Certified",
+            description: "Professional service writing and customer service",
+            icon: (
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                </svg>
+            ),
+            status: "Active"
+        },
         {
             id: 1,
             title: "2005 Business Man of the Year",
@@ -16,9 +31,10 @@ export default function AchievementsPage() {
             description: "Recognized for outstanding business leadership and entrepreneurial success",
             icon: (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
-            )
+            ),
+            status: "Completed"
         },
         {
             id: 2,
@@ -42,7 +58,7 @@ export default function AchievementsPage() {
             description: "Served as Lab Foreman multiple times, demonstrating exceptional technical leadership",
             icon: (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v7c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-7h3v6h4.5c1.38 0 2.5-1.12 2.5-2.5S18.88 13 17.5 13H16v-2.5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2V13H6.5C5.12 13 4 14.12 4 15.5S5.12 18 6.5 18H4z"/>
                 </svg>
             )
         },
@@ -55,7 +71,8 @@ export default function AchievementsPage() {
             description: "Achieved IQ ranking of 144, demonstrating exceptional cognitive abilities",
             icon: (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16c-3.31 0-6-2.69-6-6 0-1.66.67-3.16 1.76-4.24l8.48 8.48C15.16 17.33 13.66 18 12 18zm4.24-1.76L7.76 7.76C8.84 6.67 10.34 6 12 6c3.31 0 6 2.69 6 6 0 1.66-.67 3.16-1.76 4.24z"/>
+                    <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
                 </svg>
             )
         },
@@ -81,7 +98,7 @@ export default function AchievementsPage() {
             description: "2nd Degree Black Belt with multiple tournament trophies demonstrating discipline and precision",
             icon: (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    <path d="M7 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-2v1.5C17 7.33 16.33 8 15.5 8S14 7.33 14 6.5V3h-4v3.5C10 7.33 9.33 8 8.5 8S7 7.33 7 6.5V3zM12 6c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5 6H7v-2h10v2z"/>
                 </svg>
             )
         }
@@ -151,11 +168,7 @@ export default function AchievementsPage() {
             year: "Achievement",
             level: "Gas & Diesel",
             description: "Advanced training in Dana automotive systems for both gasoline and diesel engines",
-            icon: (
-                <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-            ),
+            icon: <Car className="w-10 h-10" />,
             status: "Completed"
         },
         {
@@ -179,11 +192,7 @@ export default function AchievementsPage() {
             year: "Achievement",
             level: "Advanced",
             description: "Martial arts mastery with multiple tournament trophies demonstrating discipline and precision",
-            icon: (
-                <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-            ),
+            icon: <Award className="w-10 h-10" />,
             status: "Active"
         },
         {
@@ -367,11 +376,7 @@ export default function AchievementsPage() {
             year: "Achievement",
             level: "Certified",
             description: "Advanced suspension system diagnosis and repair certification",
-            icon: (
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-            ),
+            icon: <Settings className="w-8 h-8" />,
             status: "Active"
         },
         {
@@ -381,11 +386,7 @@ export default function AchievementsPage() {
             year: "Achievement",
             level: "Certified",
             description: "Professional suspension and alignment systems certification",
-            icon: (
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-            ),
+            icon: <Wrench className="w-8 h-8" />,
             status: "Active"
         },
         {
@@ -395,11 +396,7 @@ export default function AchievementsPage() {
             year: "Achievement",
             level: "12 Tests",
             description: "Comprehensive auto parts certification covering 12 specialized test areas",
-            icon: (
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-            ),
+            icon: <Package className="w-8 h-8" />,
             status: "Completed"
         },
         {
@@ -409,11 +406,7 @@ export default function AchievementsPage() {
             year: "Achievement",
             level: "Certified",
             description: "Advanced diagnostic equipment certification for emissions testing and oscilloscope use",
-            icon: (
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-            ),
+            icon: <BarChart3 className="w-8 h-8" />,
             status: "Active"
         }
     ];
@@ -470,12 +463,8 @@ export default function AchievementsPage() {
             organization: "Personal Achievement",
             year: "Achievement",
             level: "Experienced",
-            description: "Extensive racing background with convertible nitrous injected Mustang",
-            icon: (
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-            ),
+            description: "Extensive racing background only.",
+            icon: <Zap className="w-8 h-8" />,
             status: "Active"
         }
     ];
@@ -521,7 +510,7 @@ export default function AchievementsPage() {
             id: 4,
             title: "Industries Impacted",
             description: "Innovation spanning automotive, healthcare, defense, energy, and consumer technology",
-            metric: "5+",
+            metric: "14",
             unit: "Industries",
             icon: (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">

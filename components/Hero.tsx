@@ -31,7 +31,7 @@ export default function Hero() {
     }, [mouseX, mouseY]);
 
     return (
-        <section className="min-h-[95vh] flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-20 relative overflow-hidden">
+        <section className="min-h-[95vh] mb-0 flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-20 relative overflow-hidden">
             {/* Parallax Background Blobs */}
             <motion.div
                 style={{ x: blob1X, y: blob1Y }}
@@ -94,6 +94,15 @@ export default function Hero() {
                    real estate development, health technology, and consumer innovation.
                 </motion.p>
 
+                <iframe
+                                className="w-full h-full"
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1&showinfo=0"
+                                title="Meet Nathan Reardon - Introduction Video"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            ></iframe>
+
                 <motion.div
                     className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-2"
                     initial={{ opacity: 0, y: 20 }}
@@ -119,12 +128,12 @@ export default function Hero() {
                 className="z-10 flex-1 justify-center mt-12 md:mt-0 hidden md:flex"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
+                
             >
                 <motion.div
                     className="relative"
                     animate={{ y: [0, -15, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    
                 >
                     {/* Stars at the bottom of the image */}
                     <div className="absolute bottom-0 left-0 right-0 translate-y-8 flex justify-center">

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Award, FileText, ExternalLink, Search, Filter } from "lucide-react";
+import { ArrowLeft, Award, FileText, ExternalLink, Search, Filter, X } from "lucide-react";
 import { GRADIENTS } from "@/constants/styles";
 import AnimatedStars from "@/components/AnimatedStars";
 
@@ -234,6 +234,20 @@ export default function PatentsPage() {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
     const [showFilters, setShowFilters] = useState(false);
+    const [selectedPatent, setSelectedPatent] = useState<any>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = (patent: any) => {
+        setSelectedPatent(patent);
+        setIsModalOpen(true);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedPatent(null);
+        document.body.style.overflow = 'unset';
+    };
 
     // Generate categories dynamically based on patents that exist
     const usedCategories = [...new Set(allPatents.map(patent => patent.category))].sort();
@@ -292,7 +306,7 @@ export default function PatentsPage() {
                                 <div className="text-white text-xs md:text-sm">Categories</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white">26</div>
+                                <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white">26+</div>
                                 <div className="text-white text-xs md:text-sm">Years Experience</div>
                             </div>
                         </div>
@@ -372,7 +386,8 @@ export default function PatentsPage() {
                         {filteredPatents.map((patent, index) => (
                             <div
                                 key={patent.id}
-                                className="group relative bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20 w-full"
+                                className="group relative bg-gray-800/40 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20 w-full cursor-pointer"
+                                onClick={() => openModal(patent)}
                             >
                                 {/* Patent Image */}
                                 <div className="relative h-40 md:h-48 overflow-hidden">
@@ -481,6 +496,100 @@ export default function PatentsPage() {
                     </Link>
                 </div>
             </div>
+
+            {/* Patent Modal */}
+            {isModalOpen && selectedPatent && (
+                <div 
+                    className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                    onClick={closeModal}
+                >
+                    <div 
+                        className="bg-gray-900 border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Modal Header */}
+                        <div className="sticky top-0 bg-gray-900 border-b border-gray-700 p-6 flex items-center justify-between">
+                            <div>
+                                <h2 className={`text-2xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
+                                    {selectedPatent.title}
+                                </h2>
+                                <div className="flex items-center space-x-4 mt-2">
+                                    <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm">
+                                        {selectedPatent.status}
+                                    </span>
+                                    <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
+                                        {selectedPatent.category}
+                                    </span>
+                                </div>
+                            </div>
+                            <button
+                                onClick={closeModal}
+                                className="text-gray-400 hover:text-white p-2 rounded-lg hover:bg-gray-800 transition-colors"
+                            >
+                                <X className="w-6 h-6" />
+                            </button>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="p-6">
+                            {/* Patent Image */}
+                            <div className="relative h-64 md:h-80 rounded-xl overflow-hidden mb-6">
+                                <Image
+                                    src={selectedPatent.image}
+                                    alt={selectedPatent.title}
+                                    fill
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            </div>
+
+                            {/* Patent Details */}
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h3 className="text-lg font-bold text-white mb-3">Description</h3>
+                                    <p className="text-gray-300 leading-relaxed">
+                                        {selectedPatent.description}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3 className="text-lg font-bold text-white mb-3">Key Applications</h3>
+                                    <div className="space-y-2">
+                                        {selectedPatent.applications.map((app: string, idx: number) => (
+                                            <div key={idx} className="flex items-center space-x-2">
+                                                <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                                                <span className="text-gray-300">{app}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Patent Number */}
+                            <div className="mt-6 p-4 bg-gray-800/50 rounded-xl">
+                                <div className="flex items-center space-x-2">
+                                    <FileText className="w-5 h-5 text-blue-400" />
+                                    <span className="text-white font-medium">Patent Number:</span>
+                                    <span className="text-gray-300">{selectedPatent.patentNumber}</span>
+                                </div>
+                            </div>
+
+                            {/* Contact CTA */}
+                            <div className="mt-6 text-center">
+                                <p className="text-gray-300 mb-4">Interested in licensing this technology?</p>
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center bg-gradient-to-r from-red-500 to-blue-600 hover:from-red-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300"
+                                    onClick={closeModal}
+                                >
+                                    Contact Nathan
+                                    <ExternalLink className="ml-2 w-4 h-4" />
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

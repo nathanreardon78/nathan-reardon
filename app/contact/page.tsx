@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { GRADIENTS } from '@/constants/styles';
 
 export default function ContactPage() {
@@ -133,6 +133,14 @@ export default function ContactPage() {
             color: "text-red-400"
         },
         {
+            icon: Phone,
+            title: "Phone",
+            primary: "+1 (207) 947-1999",
+            secondary: "Available during business hours",
+            href: "tel:+12079471999",
+            color: "text-blue-400"
+        },
+        {
             icon: MapPin,
             title: "Location",
             primary: "Detroit, ME 04929",
@@ -220,7 +228,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Contact Methods */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 gap-4">
                             {contactMethods.map((method, index) => {
                                 const IconComponent = method.icon;
                                 return (

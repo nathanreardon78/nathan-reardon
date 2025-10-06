@@ -46,17 +46,12 @@ export default function Patents() {
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-red-500 to-blue-500 rounded-full"></div>
             
             <div className="relative max-w-7xl mx-auto px-6 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
+                <div>
                     <h2 className={`text-5xl font-bold ${GRADIENTS.heroText} bg-clip-text text-transparent mb-6`}>
                         Patents & Innovations
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-red-500 mx-auto mb-16 rounded-full"></div>
-                </motion.div>
+                </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                     {patents.slice(0, 3).map((patent, index) => (
@@ -65,7 +60,6 @@ export default function Patents() {
                             className="group relative bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden hover:border-red-500 transition-all duration-500"
                             initial={{ opacity: 0, y: 40, rotateY: -15 }}
                             whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.2 }}
                             viewport={{ once: true }}
                             whileHover={{ y: -10, scale: 1.02 }}
                         >
