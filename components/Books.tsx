@@ -44,12 +44,12 @@ export default function Books() {
     };
 
     const books = [
+        { title: "The Risk of Success", year: 2019, cover: "/books/success-risk.png" },
         { title: "Both Sides of POOR and RICH", year: 2024, cover: "/books/both-sides.jpeg" },
         { title: "How To Get A Job And Keep It", year: 2023, cover: "/books/get-a-job.jpeg" },
         { title: "Why Liberty Is so Important", year: 2022, cover: "/books/liberty.jpeg" },
         { title: "They Never Saw It Coming", year: 2021, cover: "/books/never-saw-it.png" },
         { title: "Overwhelming Force", year: 2020, cover: "/books/overwhelming-force.jpeg" },
-        { title: "The Risk of Success", year: 2019, cover: "/books/success-risk.png" },
     ];
 
     return (
