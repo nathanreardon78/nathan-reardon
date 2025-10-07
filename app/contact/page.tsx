@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from 'lucide-react';
@@ -164,12 +163,7 @@ export default function ContactPage() {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-8 md:pb-12">
                 {/* Back Button */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-8"
-                >
+                <div className="mb-8 hero-fade-in-up">
                     <Link
                         href="/"
                         className="inline-flex items-center text-gray-400 hover:text-white transition-colors duration-300 group"
@@ -177,15 +171,10 @@ export default function ContactPage() {
                         <ArrowLeft className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" />
                         <span className="text-sm">Back to Home</span>
                     </Link>
-                </motion.div>
+                </div>
 
                 {/* Header */}
-                <motion.div
-                    className="text-center mb-12 md:mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
+                <div className="text-center mb-12 md:mb-16 hero-fade-in-up hero-fade-in-up-delay-1">
                     <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         Let's Connect
                     </h1>
@@ -193,16 +182,11 @@ export default function ContactPage() {
                         Ready to discuss innovation, licensing opportunities, or partnerships? 
                         I'm always interested in connecting with forward-thinking individuals and organizations.
                     </p>
-                </motion.div>
+                </div>
 
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
                     {/* Contact Information */}
-                    <motion.div
-                        className="space-y-6 md:space-y-8"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
+                    <div className="space-y-6 md:space-y-8 hero-fade-in-up hero-fade-in-up-delay-2">
                         {/* Profile Card */}
                         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8">
                             <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
@@ -232,12 +216,9 @@ export default function ContactPage() {
                             {contactMethods.map((method, index) => {
                                 const IconComponent = method.icon;
                                 return (
-                                    <motion.div
+                                    <div
                                         key={method.title}
-                                        className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 md:p-6 hover:border-red-500/50 transition-all duration-300 group cursor-pointer"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                                        className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 md:p-6 hover:border-red-500/50 transition-all duration-300 group cursor-pointer hero-fade-in-up hero-fade-in-up-delay-${3 + index}`}
                                         onClick={() => method.href && window.open(method.href, method.href.startsWith('mailto:') || method.href.startsWith('tel:') ? '_self' : '_blank')}
                                     >
                                         <div className="flex items-center space-x-3">
@@ -250,18 +231,13 @@ export default function ContactPage() {
                                                 <p className="text-gray-500 text-xs">{method.secondary}</p>
                                             </div>
                                         </div>
-                                    </motion.div>
+                                    </div>
                                 );
                             })}
                         </div>
 
                         {/* Call to Action */}
-                        <motion.div
-                            className="bg-gradient-to-r from-blue-500/20 to-red-500/20 border border-blue-500/30 rounded-xl p-4 md:p-6"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                        >
+                        <div className="bg-gradient-to-r from-blue-500/20 to-red-500/20 border border-blue-500/30 rounded-xl p-4 md:p-6 hero-fade-in-up hero-fade-in-up-delay-4">
                             <h4 className="text-white font-bold mb-2 text-sm md:text-base">🚀 Ready to Innovate Together?</h4>
                             <p className="text-gray-300 text-xs md:text-sm mb-4">
                                 Whether you're interested in licensing my patents, discussing investment opportunities, 
@@ -272,25 +248,15 @@ export default function ContactPage() {
                                 <span className="px-2 md:px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Partnerships</span>
                                 <span className="px-2 md:px-3 py-1 bg-white/20 text-white rounded-full text-xs">Consulting</span>
                             </div>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
 
                     {/* Contact Form */}
-                    <motion.div
-                        className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                    >
+                    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8 hero-fade-in-up hero-fade-in-up-delay-3">
                         <h3 className="text-xl md:text-2xl font-bold text-white mb-6">Send a Message</h3>
                         
                         {submitStatus === 'success' ? (
-                            <motion.div
-                                className="text-center py-8 md:py-12"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5 }}
-                            >
+                            <div className="text-center py-8 md:py-12 hero-fade-in-scale">
                                 <CheckCircle className="w-12 h-12 md:w-16 md:h-16 text-green-400 mx-auto mb-4" />
                                 <h4 className="text-lg md:text-xl font-bold text-green-400 mb-2">Message Sent Successfully!</h4>
                                 <p className="text-gray-300 text-sm md:text-base">
@@ -299,7 +265,7 @@ export default function ContactPage() {
                                 <div className="mt-4 text-xs text-gray-400">
                                     <p>Your message has been delivered to nathan@membershipauto.com</p>
                                 </div>
-                            </motion.div>
+                            </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -440,7 +406,7 @@ export default function ContactPage() {
                                 </p>
                             </form>
                         )}
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </div>

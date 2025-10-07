@@ -267,7 +267,7 @@ export default function PatentsPage() {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-                <AnimatedStars count={300} />
+                <AnimatedStars count={200} />
             </div>
 
             {/* Header */}
@@ -482,7 +482,7 @@ export default function PatentsPage() {
                             <strong>Nathan Reardon</strong>
                         </div>
                         <div className="text-gray-300 text-xs md:text-sm space-y-1">
-                            <div style={{ wordBreak: 'break-all' }}>nathan@membershipauto.com</div>
+                            <div style={{ wordBreak: 'break-all' }}>info@nathanreardon.com</div>
                             <div>PO Box 52, Detroit, ME 04929</div>
                         </div>
                     </div>

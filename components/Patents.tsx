@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { COMPONENT_STYLES, GRADIENTS } from "@/constants/styles";
@@ -55,23 +54,19 @@ export default function Patents() {
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                     {patents.slice(0, 3).map((patent, index) => (
-                        <motion.div
+                        <div
                             key={patent.id}
-                            className="group relative bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden hover:border-red-500 transition-all duration-500"
-                            initial={{ opacity: 0, y: 40, rotateY: -15 }}
-                            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                            viewport={{ once: true }}
-                            whileHover={{ y: -10, scale: 1.02 }}
+                            className={`group relative bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden hover:border-red-500 transition-all duration-300 efficient-hover hero-fade-in-up-delay-${index + 1}`}
                         >
                             {/* Hover glow */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             
                             <div className="relative w-full h-64 overflow-hidden">
                                 <Image
                                     src={patent.image}
                                     alt={patent.title}
                                     fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                    className="object-cover group-hover:scale-110 transition-transform duration-300"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             </div>
@@ -82,24 +77,19 @@ export default function Patents() {
                                 </h3>
                                 <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-gray-600 to-transparent group-hover:via-red-500 transition-colors duration-300"></div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                    viewport={{ once: true }}
-                >
+                <div className="hero-fade-in-up-delay-4">
                     <Link
                         href="/patents"
-                        className={`${COMPONENT_STYLES.heroButton}`}
+                        className={`${COMPONENT_STYLES.heroButton} efficient-hover`}
                     >
                         <span className="relative z-10">View All Patents</span>
                         <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </Link>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

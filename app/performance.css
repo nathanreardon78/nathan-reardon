@@ -1,0 +1,225 @@
+/* Performance Optimized CSS Animations */
+
+/* Fade in animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Star pulse animations */
+@keyframes starPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes starPulse2 {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes starPulse3 {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+@keyframes starPulse4 {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes starPulse5 {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes starPulse6 {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+@keyframes starPulse7 {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Utility classes for optimized animations */
+.hero-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-1 {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-2 {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-3 {
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-4 {
+  animation: fadeInUp 0.8s ease-out 1.0s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-5 {
+  animation: fadeInUp 0.8s ease-out 1.2s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-6 {
+  animation: fadeInUp 0.8s ease-out 1.4s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-7 {
+  animation: fadeInUp 0.8s ease-out 1.6s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-8 {
+  animation: fadeInUp 0.8s ease-out 1.8s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-9 {
+  animation: fadeInUp 0.8s ease-out 2.0s forwards;
+  opacity: 0;
+}
+
+.hero-image-enter {
+  animation: fadeInScale 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.hero-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.star-pulse {
+  animation: starPulse 2s ease-in-out infinite;
+}
+
+.star-pulse-2 {
+  animation: starPulse2 2.5s ease-in-out infinite 0.5s;
+}
+
+.star-pulse-3 {
+  animation: starPulse3 3s ease-in-out infinite 1.5s;
+}
+
+.star-pulse-4 {
+  animation: starPulse4 2.2s ease-in-out infinite 0.8s;
+}
+
+.star-pulse-5 {
+  animation: starPulse5 2.8s ease-in-out infinite 1s;
+}
+
+.star-pulse-6 {
+  animation: starPulse6 2.3s ease-in-out infinite 0.3s;
+}
+
+.star-pulse-7 {
+  animation: starPulse7 2.7s ease-in-out infinite 1.2s;
+}
+
+/* Efficient hover effects using CSS transforms */
+.efficient-hover {
+  transition: transform 0.2s ease-out;
+}
+
+.efficient-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Performance optimizations */
+* {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Use GPU acceleration for transforms */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}

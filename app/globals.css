@@ -1,6 +1,7 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss/theme";
 @import "tailwindcss/utilities";
+@import "./performance.css";
 
 /* ===== Custom Global Styles ===== */
 

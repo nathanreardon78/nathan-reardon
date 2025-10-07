@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { GRADIENTS } from "@/constants/styles";
 
@@ -32,25 +31,6 @@ const goals = [
 ];
 
 export default function MajorGoals() {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.3
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8 }
-        }
-    };
-
     return (
         <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black overflow-hidden">
             {/* Background Elements */}
@@ -62,13 +42,7 @@ export default function MajorGoals() {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
-                <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    
-                >
+                <div className="text-center mb-16 hero-fade-in-up">
                     <h2 className={`text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         My Three Major Life Goals
                     </h2>
@@ -76,21 +50,14 @@ export default function MajorGoals() {
                         Beyond innovation and invention, I'm committed to solving humanity's greatest challenges. 
                         These are the missions that drive my passion for creating meaningful change in the world.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Goals Grid */}
-                <motion.div
-                    className="grid grid-cols-1 lg:grid-cols-3 gap-8"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                >
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {goals.map((goal, index) => (
-                        <motion.div
+                        <div
                             key={goal.id}
-                            className="group relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-gray-500/50 transition-all duration-500"
-                            variants={itemVariants}
+                            className={`group relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-gray-500/50 transition-all duration-300 efficient-hover hero-fade-in-up-delay-${index + 1}`}
                         >
                             {/* Goal Image */}
                             <div className="relative h-64 overflow-hidden">
@@ -99,7 +66,7 @@ export default function MajorGoals() {
                                     src={goal.image}
                                     alt={goal.title}
                                     fill
-                                    className="object-contain group-hover:scale-110 transition-transform duration-700"
+                                    className="object-contain group-hover:scale-110 transition-transform duration-300"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                                 
@@ -122,10 +89,10 @@ export default function MajorGoals() {
                             </div>
 
                             {/* Hover Effect Overlay */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${goal.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                        </motion.div>
+                            <div className={`absolute inset-0 bg-gradient-to-br ${goal.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
 
             </div>
         </section>

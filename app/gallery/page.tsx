@@ -21,7 +21,12 @@ export default function GalleryPage() {
         { src: "/gallery/photo5.jpeg", name: "Industry Leader" },
         { src: "/gallery/vanilla-ice.jpeg", name: "Vanilla Ice" },
         { src: "/gallery/wayde-king-(tv-show-tanked).jpeg", name: "Wayde King (TV Show Tanked)" },
-        { src: "/gallery/wayne-huizenga-jr.jpeg", name: "Wayne Huizenga Jr." }
+        { src: "/gallery/wayne-huizenga-jr.jpeg", name: "Wayne Huizenga Jr." },
+        { src: "/gallery/family1.jpg", name: "Family" },
+        { src: "/gallery/family2.jpg", name: "Family" },
+        { src: "/gallery/family3.jpg", name: "Family" },
+        { src: "/ford-mustang-shelbygt500.jpeg", name: "Ford Mustang Shelby GT500" },
+        { src: "/mclarenf1.jpeg", name: "McLaren F1" }
     ];
 
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -110,8 +115,8 @@ export default function GalleryPage() {
                                 {/* Hover overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 
-                                {/* Name label - Always visible at bottom (except for photo5.jpeg) */}
-                                {image.src !== "/gallery/photo5.jpeg" && (
+                                {/* Name label - Always visible at bottom (except for photo5.jpeg and family images) */}
+                                {image.src !== "/gallery/photo5.jpeg" && !image.src.includes("family") && (
                                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-4 pt-8">
                                         <div className="text-center">
                                             <p className="text-white font-semibold text-sm leading-tight">
@@ -177,8 +182,8 @@ export default function GalleryPage() {
                             className="object-contain max-w-full max-h-full rounded-lg"
                         />
                         
-                        {/* Name overlay - conditional for photo5.jpeg */}
-                        {galleryImages[selectedImage].src !== "/gallery/photo5.jpeg" && (
+                        {/* Name overlay - conditional for photo5.jpeg and family images */}
+                        {galleryImages[selectedImage].src !== "/gallery/photo5.jpeg" && !galleryImages[selectedImage].src.includes("family") && (
                             <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white px-6 py-3 rounded-full text-lg font-semibold">
                                 Nathan with {galleryImages[selectedImage].name}
                             </div>

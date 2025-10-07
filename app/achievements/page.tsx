@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { GRADIENTS } from '@/constants/styles';
 import AnimatedStars from '@/components/AnimatedStars';
@@ -520,25 +519,6 @@ export default function AchievementsPage() {
         }
     ];
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6 }
-        }
-    };
-
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
             {/* Background Elements */}
@@ -552,12 +532,7 @@ export default function AchievementsPage() {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 {/* Back to Home Link */}
-                <motion.div
-                    className="mb-8"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
+                <div className="mb-8 hero-fade-in-up">
                     <Link 
                         href="/"
                         className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300"
@@ -567,15 +542,10 @@ export default function AchievementsPage() {
                         </svg>
                         Back to Home
                     </Link>
-                </motion.div>
+                </div>
 
                 {/* Header */}
-                <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
+                <div className="text-center mb-16 hero-fade-in-up hero-fade-in-up-delay-1">
                     <h1 className={`text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         Professional Achievements
                     </h1>
@@ -583,20 +553,14 @@ export default function AchievementsPage() {
                         A comprehensive overview of Nathan Reardon's professional achievements, certifications, and milestones 
                         spanning over 17 years of automotive innovation and excellence.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Key Metrics */}
-                <motion.div 
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    {achievements.map((achievement) => (
-                        <motion.div
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    {achievements.map((achievement, index) => (
+                        <div
                             key={achievement.id}
-                            className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 text-center hover:border-red-500/50 transition-all duration-300"
-                            variants={itemVariants}
+                            className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 text-center hover:border-red-500/50 transition-all duration-300 hero-fade-in-up hero-fade-in-up-delay-${2 + index}`}
                         >
                             <div className="text-red-400 mb-4 flex justify-center">{achievement.icon}</div>
                             <div className={`text-3xl font-bold mb-2 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
@@ -605,28 +569,20 @@ export default function AchievementsPage() {
                             <div className="text-white text-sm mb-3">{achievement.unit}</div>
                             <h3 className="text-white font-semibold mb-2">{achievement.title}</h3>
                             <p className="text-white text-sm">{achievement.description}</p>
-                        </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
 
                 {/* Professional Awards */}
-                <motion.section 
-                    className="mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
+                <section className="mb-16 hero-fade-in-up hero-fade-in-up-delay-6">
                     <h2 className={`text-3xl font-bold mb-8 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         Professional Achievements & Awards
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {awards.map((award, index) => (
-                            <motion.div
+                            <div
                                 key={award.id}
-                                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300 group"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                                className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300 group hero-fade-in-up hero-fade-in-up-delay-${7 + index}`}
                             >
                                 <div className="flex items-start justify-between mb-4">
                                     <div className="text-blue-400">{award.icon}</div>
@@ -642,29 +598,23 @@ export default function AchievementsPage() {
                                 <span className="inline-block bg-gray-700/50 text-white px-3 py-1 rounded-full text-xs">
                                     {award.category}
                                 </span>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
-                </motion.section>
+                </section>
 
                 {/* Certifications & Training */}
-                <motion.section 
+                <section 
                     className="mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     <h2 className={`text-3xl font-bold mb-8 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         Certifications & Professional Development
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {certifications.map((cert, index) => (
-                            <motion.div
+                            <div
                                 key={cert.id}
                                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-green-500/50 transition-all duration-300"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
                             >
                                 <div className="flex items-start justify-between mb-6">
                                     <div className="text-green-400">{cert.icon}</div>
@@ -683,29 +633,23 @@ export default function AchievementsPage() {
                                         {cert.level}
                                     </span>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
-                </motion.section>
+                </section>
 
                 {/* ASE Certifications */}
-                <motion.section 
+                <section 
                     className="mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
                 >
                     <h2 className={`text-3xl font-bold mb-8 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         ASE Certifications (11 Specialties)
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {aseCertifications.map((cert, index) => (
-                            <motion.div
+                            <div
                                 key={cert.id}
                                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 hover:border-red-500/50 transition-all duration-300"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.7 + index * 0.05 }}
                             >
                                 <div className="flex items-start justify-between mb-3">
                                     <div className="text-red-400">{cert.icon}</div>
@@ -718,29 +662,23 @@ export default function AchievementsPage() {
                                 <span className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full text-xs">
                                     {cert.level}
                                 </span>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
-                </motion.section>
+                </section>
 
                 {/* Technical Certifications */}
-                <motion.section 
+                <section 
                     className="mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
                 >
                     <h2 className={`text-3xl font-bold mb-8 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         Technical Certifications
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {technicalCertifications.map((cert, index) => (
-                            <motion.div
+                            <div
                                 key={cert.id}
                                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
                             >
                                 <div className="flex items-start justify-between mb-4">
                                     <div className="text-blue-400">{cert.icon}</div>
@@ -754,29 +692,23 @@ export default function AchievementsPage() {
                                 <span className="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-xs">
                                     {cert.level}
                                 </span>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
-                </motion.section>
+                </section>
 
                 {/* Professional Development */}
-                <motion.section 
+                <section 
                     className="mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.0 }}
                 >
                     <h2 className={`text-3xl font-bold mb-8 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         Professional Development
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {professionalDevelopment.map((cert, index) => (
-                            <motion.div
+                            <div
                                 key={cert.id}
                                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-white/50 transition-all duration-300"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 1.1 + index * 0.1 }}
                             >
                                 <div className="flex items-start justify-between mb-4">
                                     <div className="text-white">{cert.icon}</div>
@@ -790,29 +722,23 @@ export default function AchievementsPage() {
                                 <span className="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-xs">
                                     {cert.level}
                                 </span>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
-                </motion.section>
+                </section>
 
                 {/* Additional Skills */}
-                <motion.section 
+                <section 
                     className="mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.2 }}
                 >
                     <h2 className={`text-3xl font-bold mb-8 bg-gradient-to-r ${GRADIENTS.heroText} bg-clip-text text-transparent`}>
                         Additional Skills & Experience
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {additionalSkills.map((skill, index) => (
-                            <motion.div
+                            <div
                                 key={skill.id}
                                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-yellow-500/50 transition-all duration-300"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 1.3 + index * 0.1 }}
                             >
                                 <div className="flex items-start justify-between mb-4">
                                     <div className="text-yellow-400">{skill.icon}</div>
@@ -826,17 +752,14 @@ export default function AchievementsPage() {
                                 <span className="bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-xs">
                                     {skill.level}
                                 </span>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
-                </motion.section>
+                </section>
 
                 {/* Call to Action */}
-                <motion.div
+                <div
                     className="text-center bg-gradient-to-r from-blue-500/20 to-red-500/20 border border-blue-500/30 rounded-2xl p-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
                 >
                     <h3 className="text-2xl font-bold text-white mb-4">Interested in Collaboration?</h3>
                     <p className="text-white mb-6 max-w-2xl mx-auto">
@@ -857,7 +780,7 @@ export default function AchievementsPage() {
                             View Patents
                         </Link>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </div>
     );
